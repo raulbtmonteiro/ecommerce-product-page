@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Header, ProductPage, Cart } from "./components";
 import { createGlobalStyle } from "styled-components";
+import "./App.css";
 
 const GlobalStyle = createGlobalStyle`
   *{

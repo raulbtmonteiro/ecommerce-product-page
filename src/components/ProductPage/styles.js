@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Product1Thumbnail from "../../assets/images/image-product-1-thumbnail.jpg";
 
 export const ProductPageWrapper = styled.main`
   max-width: 1110px;
@@ -29,30 +28,8 @@ export const ThumbnailDisplay = styled.div`
 
     :hover {
       border: 2px solid #ff7e1b;
+      filter: opacity(50%);
     }
-  }
-`;
-
-export const Thumbnail = styled.div.attrs((props) => ({
-  imgUrl: props.img,
-}))`
-  width: 88px;
-  border-radius: 10px;
-
-  background-image: url(${Product1Thumbnail});
-  background-size: contain;
-
-  cursor: pointer;
-
-  :hover {
-    background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.5)
-      ),
-      url(${Product1Thumbnail});
-    background-size: contain;
-    border: 2px solid #ff7e1b;
   }
 `;
 

@@ -1,20 +1,23 @@
 import styled, { css } from "styled-components";
 
-export const CartContainer = styled.section`
+export const CartContainer = styled.div`
   display: none;
-
+  position: absolute;
+  z-index: 4;
+  width: 100%;
+  margin: 0 calc(-50vw + 555px);
   ${({ cartShow }) =>
     cartShow &&
     css`
-      display: block;
-      max-width: 1110px;
-      margin: 0 auto;
-    `}
+      display: flex;
+      justify-content: flex-end;
+      z-index: 4;
+    `};
 `;
 
 export const CartWrapper = styled.div`
-  position: absolute;
-  right: 0;
+  position: relative;
+  right: 0px;
   width: 360px;
   height: 256px;
   background-color: white;
@@ -53,6 +56,8 @@ export const CheckoutButton = styled.button`
   font-size: 16px;
   line-height: 20px;
   border: none;
+
+  cursor: pointer;
 
   color: #ffffff;
 `;

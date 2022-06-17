@@ -1,0 +1,4 @@
+#selectedImg {
+  filter: opacity(25%);
+  border: 2px solid #ff7e1b;
+}

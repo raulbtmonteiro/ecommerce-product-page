@@ -1,18 +1,14 @@
 import Product1 from "../../assets/images/image-product-1.jpg";
-import Product1Thumbnail from "../../assets/images/image-product-1-thumbnail.jpg";
 import Product2 from "../../assets/images/image-product-2.jpg";
-import Product2Thumbnail from "../../assets/images/image-product-2-thumbnail.jpg";
 import Product3 from "../../assets/images/image-product-3.jpg";
-import Product3Thumbnail from "../../assets/images/image-product-3-thumbnail.jpg";
 import Product4 from "../../assets/images/image-product-4.jpg";
-import Product4Thumbnail from "../../assets/images/image-product-4-thumbnail.jpg";
 import { AmountSelector } from "./AmountSelector";
 import { StyledButton } from "./StyledButton";
+import { useEffect } from "react";
 import {
   ProductPageWrapper,
   DisplayImg,
   ThumbnailDisplay,
-  Thumbnail,
   ProductInfo,
   Company,
   ProductName,
@@ -30,30 +26,43 @@ export const ProductPage = ({
   cartProducts,
   increaseCartProducts,
 }) => {
+  const selectImage = (e) => {
+    const imgList = e.target.parentNode;
+    for (var i = 0; i < 4; i++) {
+      imgList.children[i].id = "";
+    }
+    e.target.id = "selectedImg";
+    console.log(e.target.src);
+    const imageDisplay = document.getElementById("imageDisplay");
+    imageDisplay.src = e.target.src;
+  };
+
+  useEffect(() => {
+    const thumbnailDisplay = document.getElementById("thumbanildisplay");
+    const firstImg = thumbnailDisplay.children[0];
+    firstImg.id = "selectedImg";
+  }, []);
+
   return (
     <ProductPageWrapper>
       <section>
-        <DisplayImg src={Product1} />
-        <ThumbnailDisplay>
-          <Thumbnail img="../../assets/images/image-product-1-thumbnail.jpg" />
-          <img src={Product2Thumbnail} />
-          <img src={Product3Thumbnail} />
-          <img src={Product4Thumbnail} />
+        <DisplayImg id="imageDisplay" src={Product1} />
+        <ThumbnailDisplay id="thumbanildisplay">
+          <img src={Product1} onClick={(e) => selectImage(e)} />
+          <img src={Product2} onClick={(e) => selectImage(e)} />
+          <img src={Product3} onClick={(e) => selectImage(e)} />
+          <img src={Product4} onClick={(e) => selectImage(e)} />
         </ThumbnailDisplay>
       </section>
       <ProductInfo>
         <Company>Sneaker Company</Company>
-        <ProductName>Fall Limited Edition Sneakers</ProductName>
-        <ProductDescription>
-          These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they’ll withstand everything
-          the weather can offer.
-        </ProductDescription>
+        <ProductName>{productsArray[0].name}</ProductName>
+        <ProductDescription>{productsArray[0].description}</ProductDescription>
         <PriceDisplay>
-          <Price>$125.00</Price>
-          <Discount>50%</Discount>
+          <Price>{productsArray[0].price}</Price>
+          <Discount>{productsArray[0].discount}</Discount>
         </PriceDisplay>
-        <OriginalPrice>$250.00</OriginalPrice>
+        <OriginalPrice>{productsArray[0].originalPrice}</OriginalPrice>
         <Buttons>
           <AmountSelector count={count} setCount={setCount} />
           <StyledButton
@@ -67,3 +76,14 @@ export const ProductPage = ({
     </ProductPageWrapper>
   );
 };
+
+const productsArray = [
+  {
+    name: "Fall Limited Edition Sneakers",
+    description:
+      "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+    price: "$125.00",
+    discount: "50%",
+    originalPrice: "$250.00",
+  },
+];
