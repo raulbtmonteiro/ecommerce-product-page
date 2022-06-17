@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const SelectorContainer = styled.div`
   display: inline-block;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 export const SelectorWrapper = styled.div`
@@ -15,6 +19,10 @@ export const SelectorWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 export const Minus = styled.div`

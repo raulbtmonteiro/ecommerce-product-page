@@ -3,11 +3,16 @@ import styled from "styled-components";
 export const ProductPageWrapper = styled.main`
   max-width: 1110px;
   margin: 0 auto;
-  padding: 90px 47.5px 0 47.5px;
+  padding: 90px 47.5px 50px 47.5px;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 1110px) {
+    padding: 50px 24px;
+    margin: 0;
+  }
 
   @media screen and (max-width: 720px) {
     flex-direction: column;
@@ -25,6 +30,40 @@ export const DisplayImg = styled.img`
     width: 100%;
     border-radius: 0;
     margin-bottom: 0;
+  }
+`;
+
+export const LeftArrow = styled.div`
+  display: none;
+  @media screen and (max-width: 720px) {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    left: 16px;
+    top: calc(50% - 20px - 68px);
+    cursor: pointer;
+  }
+`;
+
+export const RightArrow = styled.div`
+  display: none;
+  @media screen and (max-width: 720px) {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border-radius: 50%;
+    background-color: white;
+    right: 16px;
+    top: calc(50% - 20px - 68px);
+    cursor: pointer;
   }
 `;
 

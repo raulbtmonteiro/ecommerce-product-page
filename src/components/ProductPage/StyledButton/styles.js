@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const ButtonWrapper = styled.div`
   display: inline-block;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 export const Button = styled.button`
@@ -18,6 +22,10 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+  }
 `;
 
 export const ButtonText = styled.p`

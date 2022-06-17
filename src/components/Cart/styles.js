@@ -6,6 +6,17 @@ export const CartContainer = styled.div`
   z-index: 4;
   width: 100%;
   margin: 0 calc(-50vw + 555px);
+
+  @media screen and (max-width: 720px) {
+    margin: 0;
+    margin-top: 5px;
+    right: 24px;
+  }
+
+  @media screen and (max-width: 408px) {
+    right: calc(50vw - 180px);
+  }
+
   ${({ cartShow }) =>
     cartShow &&
     css`

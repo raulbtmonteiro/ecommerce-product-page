@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const HeaderWrapper = styled.header`
   max-width: 1110px;
@@ -12,7 +12,9 @@ export const HeaderWrapper = styled.header`
   border-bottom: 1px solid #e4e9f2;
 
   @media screen and (max-width: 1110px) {
-    margin: 0 24px;
+    width: 100%;
+    margin: 0;
+    padding: 0 24px;
   }
 
   @media screen and (max-width: 720px) {
@@ -28,10 +30,92 @@ export const HeaderLeft = styled.div`
   height: 100%;
 `;
 
+export const HamburgerMenu = styled.div`
+  display: none;
+  z-index: 6;
+  cursor: pointer;
+
+  @media screen and (max-width: 720px) {
+    display: flex;
+    flex-direction: column;
+    height: 15px;
+    width: 16px;
+    justify-content: space-between;
+    margin-right: 16px;
+    position: relative;
+    top: 2px;
+  }
+`;
+
+export const XDirection = styled.div`
+  width: 16px;
+  height: 3px;
+  background-color: #69707d;
+  transition: 500ms;
+
+  ${({ menuShow }) =>
+    menuShow &&
+    css`
+      position: relative;
+      top: 5.5px;
+      width: 35px;
+      transform: rotate(45deg);
+    `}
+`;
+
+export const Middle = styled.div`
+  width: 16px;
+  height: 3px;
+  background-color: #69707d;
+
+  ${({ menuShow }) =>
+    menuShow &&
+    css`
+      display: none;
+    `}
+`;
+
+export const YDirection = styled.div`
+  width: 16px;
+  height: 3px;
+  background-color: #69707d;
+  transition: 500ms;
+
+  ${({ menuShow }) =>
+    menuShow &&
+    css`
+      position: relative;
+      top: -5.5px;
+      width: 35px;
+      transform: rotate(-45deg);
+    `}
+`;
+
 export const HeaderRight = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+`;
+
+export const Overlay = styled.div`
+  display: none;
+
+  @media screen and (max-width: 720px) {
+    ${({ menuShow }) =>
+      menuShow &&
+      css`
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 4;
+        background-color: rgba(0, 0, 0, 0.5);
+      `}
+  }
 `;
 
 export const NavBar = styled.nav`
@@ -39,17 +123,27 @@ export const NavBar = styled.nav`
   height: 100%;
   display: flex;
   align-items: center;
+  z-index: 5;
+  transition: 500ms;
 
   @media screen and (max-width: 720px) {
-    display: none;
+    left: -315px;
+    display: flex;
     background-color: white;
-    position: absolute;
-    left: 0;
+    position: fixed;
     top: 0;
     height: 100vh;
     width: 250px;
     flex-direction: column;
     justify-content: flex-start;
+    padding-top: calc(50% - 26px / 2 - 92px);
+    padding-left: 25px;
+
+    ${({ menuShow }) =>
+      menuShow &&
+      css`
+        left: -65px;
+      `}
   }
 `;
 
@@ -73,7 +167,13 @@ export const NavBarItem = styled.a`
   }
 
   @media screen and (max-width: 720px) {
+    height: 26px;
     margin-right: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #1d2026;
   }
 `;
 
