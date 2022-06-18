@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SelectorContainer = styled.div`
   display: inline-block;
+  margin-bottom: 16px;
 
   @media screen and (max-width: 720px) {
     width: 100%;

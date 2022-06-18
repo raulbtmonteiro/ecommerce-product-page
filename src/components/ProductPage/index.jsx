@@ -5,10 +5,11 @@ import Product4 from "../../assets/images/image-product-4.jpg";
 import leftarrow from "../../assets/images/leftArrow.svg";
 import rightarrow from "../../assets/images/rightArrow.svg";
 import { AmountSelector } from "./AmountSelector";
-import { StyledButton } from "./StyledButton";
+import { AddToCartButton } from "./AddToCartButton";
 import { useEffect } from "react";
 import {
   ProductPageWrapper,
+  Images,
   DisplayImg,
   LeftArrow,
   RightArrow,
@@ -81,21 +82,37 @@ export const ProductPage = ({
 
   return (
     <ProductPageWrapper>
-      <section>
+      <Images>
         <LeftArrow onClick={() => previousImage()}>
-          <img src={leftarrow} />
+          <img src={leftarrow} alt="Seta seletora da foto anterior." />
         </LeftArrow>
-        <DisplayImg id="imageDisplay" src={Product1} />
+        <DisplayImg id="imageDisplay" src={Product1} alt="Imagem do produto" />
         <RightArrow onClick={() => nextImage()}>
-          <img src={rightarrow} />
+          <img src={rightarrow} alt="Seta seletora da próxima foto." />
         </RightArrow>
         <ThumbnailDisplay id="thumbanildisplay">
-          <img src={Product1} onClick={(e) => selectImage(e)} />
-          <img src={Product2} onClick={(e) => selectImage(e)} />
-          <img src={Product3} onClick={(e) => selectImage(e)} />
-          <img src={Product4} onClick={(e) => selectImage(e)} />
+          <img
+            src={Product1}
+            alt="Imagem do produto"
+            onClick={(e) => selectImage(e)}
+          />
+          <img
+            src={Product2}
+            alt="Imagem do produto"
+            onClick={(e) => selectImage(e)}
+          />
+          <img
+            src={Product3}
+            alt="Imagem do produto"
+            onClick={(e) => selectImage(e)}
+          />
+          <img
+            src={Product4}
+            alt="Imagem do produto"
+            onClick={(e) => selectImage(e)}
+          />
         </ThumbnailDisplay>
-      </section>
+      </Images>
       <ProductInfo>
         <Company>Sneaker Company</Company>
         <ProductName>{productsArray[0].name}</ProductName>
@@ -107,7 +124,7 @@ export const ProductPage = ({
         <OriginalPrice>{productsArray[0].originalPrice}</OriginalPrice>
         <Buttons>
           <AmountSelector count={count} setCount={setCount} />
-          <StyledButton
+          <AddToCartButton
             count={count}
             setCount={setCount}
             cartProducts={cartProducts}

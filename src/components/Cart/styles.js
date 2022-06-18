@@ -7,14 +7,21 @@ export const CartContainer = styled.div`
   width: 100%;
   margin: 0 calc(-50vw + 555px);
 
-  @media screen and (max-width: 720px) {
+  @media screen and (max-width: 1110px) {
     margin: 0;
     margin-top: 5px;
     right: 24px;
   }
 
   @media screen and (max-width: 408px) {
+    max-width: 100vw;
     right: calc(50vw - 180px);
+  }
+
+  @media screen and (max-width: 370px) {
+    max-width: 90vw;
+    right: 0;
+    margin: 5px calc(5vw);
   }
 
   ${({ cartShow }) =>

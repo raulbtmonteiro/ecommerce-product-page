@@ -23,7 +23,10 @@ export const Cart = ({ cartShow, cartProducts, deleteCartProducts }) => {
         {cartProducts > 0 ? (
           <CartInfo>
             <ProductCartInfo>
-              <ProductCartImg src={Product1Thumbnail} />
+              <ProductCartImg
+                src={Product1Thumbnail}
+                alt="Imagem do produto."
+              />
               <ProductCartTotal>
                 <p>Fall Limited Edition Sneakers</p>
                 <p>
@@ -33,6 +36,7 @@ export const Cart = ({ cartShow, cartProducts, deleteCartProducts }) => {
               <IconDelete
                 src={iconDelete}
                 onClick={() => deleteCartProducts()}
+                alt="Ícone de lixeira para deletar produto do carrinho."
               />
             </ProductCartInfo>
             <CheckoutButton>Checkout</CheckoutButton>

@@ -31,7 +31,7 @@ export const Header = ({ cartShow, setCartShow, cartProducts }) => {
           <Middle menuShow={menuShow} />
           <YDirection menuShow={menuShow} />
         </HamburgerMenu>
-        <img src={logo} />
+        <img src={logo} alt="Logo da Sneakers Company." />
         <Overlay menuShow={menuShow} onClick={() => setMenuShow(!menuShow)} />
         <NavBar menuShow={menuShow}>
           {navBarList.map((item) => {
@@ -41,11 +41,15 @@ export const Header = ({ cartShow, setCartShow, cartProducts }) => {
       </HeaderLeft>
 
       <HeaderRight>
-        <CartImg src={iconCart} onClick={() => setCartShow(!cartShow)} />
+        <CartImg
+          src={iconCart}
+          alt="Carrinho de compras."
+          onClick={() => setCartShow(!cartShow)}
+        />
         <Products onClick={() => setCartShow(!cartShow)}>
           {cartProducts > 0 && <p>{cartProducts}</p>}
         </Products>
-        <Avatar src={imageAvatar} />
+        <Avatar src={imageAvatar} alt="Imagem de perfil do usuário." />
       </HeaderRight>
     </HeaderWrapper>
   );

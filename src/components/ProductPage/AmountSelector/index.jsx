@@ -1,4 +1,3 @@
-import { useState } from "react";
 import minus from "../../../assets/images/icon-minus.svg";
 import plus from "../../../assets/images/icon-plus.svg";
 import {
@@ -18,11 +17,11 @@ export const AmountSelector = ({ count, setCount }) => {
     <SelectorContainer>
       <SelectorWrapper>
         <Minus onClick={() => subtract()}>
-          <img src={minus} />
+          <img src={minus} alt="Operador matemático mais." />
         </Minus>
         <Amount>{count}</Amount>
         <Plus onClick={() => setCount(count + 1)}>
-          <img src={plus} />
+          <img src={plus} alt="Operador matemático menos." />
         </Plus>
       </SelectorWrapper>
     </SelectorContainer>
