@@ -55,7 +55,7 @@ export const LeftArrow = styled.div`
     border-radius: 50%;
     background-color: white;
     left: 16px;
-    top: calc(50% - 20px - 68px);
+    top: calc(50vw + 68px);
     cursor: pointer;
   }
 `;
@@ -72,7 +72,7 @@ export const RightArrow = styled.div`
     border-radius: 50%;
     background-color: white;
     right: 16px;
-    top: calc(50% - 20px - 68px);
+    top: calc(50vw + 68px);
     cursor: pointer;
   }
 `;
