@@ -115,13 +115,13 @@ export const ProductPage = ({
       </Images>
       <ProductInfo>
         <Company>Sneaker Company</Company>
-        <ProductName>{productsArray[0].name}</ProductName>
-        <ProductDescription>{productsArray[0].description}</ProductDescription>
+        <ProductName>{product.name}</ProductName>
+        <ProductDescription>{product.description}</ProductDescription>
         <PriceDisplay>
-          <Price>{productsArray[0].price}</Price>
-          <Discount>{productsArray[0].discount}</Discount>
+          <Price>{product.price}</Price>
+          <Discount>{product.discount}</Discount>
         </PriceDisplay>
-        <OriginalPrice>{productsArray[0].originalPrice}</OriginalPrice>
+        <OriginalPrice>{product.originalPrice}</OriginalPrice>
         <Buttons>
           <AmountSelector count={count} setCount={setCount} />
           <AddToCartButton
@@ -136,13 +136,11 @@ export const ProductPage = ({
   );
 };
 
-const productsArray = [
-  {
-    name: "Fall Limited Edition Sneakers",
-    description:
-      "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
-    price: "$125.00",
-    discount: "50%",
-    originalPrice: "$250.00",
-  },
-];
+const product = {
+  name: "Fall Limited Edition Sneakers",
+  description:
+  "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+  price: "$125.00",
+  discount: "50%",
+  originalPrice: "$250.00",
+};
