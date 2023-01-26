@@ -10,7 +10,7 @@ import {
 
 export const AmountSelector = ({ count, setCount }) => {
   const subtract = () => {
-    return count >= 1 ? setCount(count - 1) : count;
+    return count >= 1 ? setCount((prevState) => prevState - 1) : count;
   };
 
   return (
@@ -20,7 +20,7 @@ export const AmountSelector = ({ count, setCount }) => {
           <img src={minus} alt="Operador matemático mais." />
         </Minus>
         <Amount>{count}</Amount>
-        <Plus onClick={() => setCount(count + 1)}>
+        <Plus onClick={() => setCount((prevState) => prevState + 1)}>
           <img src={plus} alt="Operador matemático menos." />
         </Plus>
       </SelectorWrapper>
