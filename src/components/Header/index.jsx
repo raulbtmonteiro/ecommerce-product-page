@@ -37,7 +37,11 @@ export const Header = ({ cartProducts, deleteCartProducts }) => {
         <Overlay menuShow={menuShow} onClick={() => setMenuShow(!menuShow)} />
         <NavBar menuShow={menuShow}>
           {navBarList.map((item) => {
-            return <NavBarItem key={item}>{item}</NavBarItem>;
+            return (
+              <NavBarItem href="#" key={item}>
+                {item}
+              </NavBarItem>
+            );
           })}
         </NavBar>
       </HeaderLeft>
