@@ -24,6 +24,7 @@ import {
   OriginalPrice,
   Buttons,
 } from "./styles";
+import { formatCurrency, formatPercet } from "../../utils/Utils";
 
 export const ProductPage = ({
   count,
@@ -113,15 +114,16 @@ export const ProductPage = ({
           />
         </ThumbnailDisplay>
       </Images>
+
       <ProductInfo>
-        <Company>Sneaker Company</Company>
+        <Company>{product.brand}</Company>
         <ProductName>{product.name}</ProductName>
         <ProductDescription>{product.description}</ProductDescription>
         <PriceDisplay>
-          <Price>{product.price}</Price>
-          <Discount>{product.discount}</Discount>
+          <Price>{formatCurrency(product.price)}</Price>
+          <Discount>{formatPercet(product.discount)}</Discount>
         </PriceDisplay>
-        <OriginalPrice>{product.originalPrice}</OriginalPrice>
+        <OriginalPrice>{formatCurrency(product.originalPrice)}</OriginalPrice>
         <Buttons>
           <AmountSelector count={count} setCount={setCount} />
           <AddToCartButton
@@ -129,6 +131,7 @@ export const ProductPage = ({
             setCount={setCount}
             cartProducts={cartProducts}
             increaseCartProducts={increaseCartProducts}
+            product={product}
           />
         </Buttons>
       </ProductInfo>
@@ -137,10 +140,12 @@ export const ProductPage = ({
 };
 
 const product = {
+  id: 123456,
+  brand: "Sneaker Company",
   name: "Fall Limited Edition Sneakers",
   description:
-  "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
-  price: "$125.00",
-  discount: "50%",
-  originalPrice: "$250.00",
+    "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.",
+  price: 125,
+  discount: 0.5,
+  originalPrice: 250,
 };

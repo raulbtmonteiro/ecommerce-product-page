@@ -1,36 +1,23 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const CartContainer = styled.div`
-  display: none;
+  display: flex;
+  justify-content: flex-end;
   position: absolute;
+  left: calc(50vw - 555px);
+  top: 165px;
   z-index: 4;
+  max-width: 1110px;
   width: 100%;
-  margin: 0 calc(-50vw + 555px);
 
   @media screen and (max-width: 1110px) {
-    margin: 0;
-    margin-top: 5px;
-    right: 24px;
+    left: 0;
+    padding: 0 24px;
   }
 
-  @media screen and (max-width: 408px) {
-    max-width: 100vw;
-    right: calc(50vw - 180px);
+  @media screen and (max-width: 720px) {
+    top: 68px;
   }
-
-  @media screen and (max-width: 370px) {
-    max-width: 90vw;
-    right: 0;
-    margin: 5px calc(5vw);
-  }
-
-  ${({ cartShow }) =>
-    cartShow &&
-    css`
-      display: flex;
-      justify-content: flex-end;
-      z-index: 4;
-    `};
 `;
 
 export const CartWrapper = styled.div`
@@ -100,6 +87,11 @@ export const ProductCartTotal = styled.div`
     line-height: 26px;
     color: #69707d;
   }
+`;
+
+export const Flex = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const IconDelete = styled.img`

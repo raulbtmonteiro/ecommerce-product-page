@@ -16,12 +16,17 @@ import {
   Products,
   Avatar,
 } from "./styles";
+import { Cart } from "./Cart";
 import { useState } from "react";
 
 const navBarList = ["Collection", "Men", "Women", "About", "Contact"];
 
-export const Header = ({ cartShow, setCartShow, cartProducts }) => {
+export const Header = ({ cartProducts, deleteCartProducts }) => {
   const [menuShow, setMenuShow] = useState(false);
+  const [cartShow, setCartShow] = useState(false);
+
+  console.log("o cart product", cartProducts);
+  console.log("o cart product tamanho", cartProducts.length);
 
   return (
     <HeaderWrapper>
@@ -46,8 +51,19 @@ export const Header = ({ cartShow, setCartShow, cartProducts }) => {
           alt="Carrinho de compras."
           onClick={() => setCartShow(!cartShow)}
         />
+        {cartShow && (
+          <Cart
+            cartProducts={cartProducts}
+            deleteCartProducts={deleteCartProducts}
+          />
+        )}
         <Products onClick={() => setCartShow(!cartShow)}>
-          {cartProducts > 0 && <p>{cartProducts}</p>}
+          <p>
+            {cartProducts.length == 1
+              ? cartProducts[0].amount
+              : cartProducts.length > 1 &&
+                cartProducts.reduce((acc, cur) => acc + cur.amount)}
+          </p>
         </Products>
         <Avatar src={imageAvatar} alt="Imagem de perfil do usuário." />
       </HeaderRight>
