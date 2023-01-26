@@ -154,6 +154,7 @@ export const NavBarItem = styled.a`
   margin-right: 2em;
 
   color: #69707d;
+  text-decoration: none;
 
   height: 100%;
   display: flex;
