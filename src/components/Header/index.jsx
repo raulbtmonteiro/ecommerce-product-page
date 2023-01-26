@@ -25,9 +25,6 @@ export const Header = ({ cartProducts, deleteCartProducts }) => {
   const [menuShow, setMenuShow] = useState(false);
   const [cartShow, setCartShow] = useState(false);
 
-  console.log("o cart product", cartProducts);
-  console.log("o cart product tamanho", cartProducts.length);
-
   return (
     <HeaderWrapper>
       <HeaderLeft>

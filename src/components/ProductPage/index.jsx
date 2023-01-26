@@ -6,7 +6,7 @@ import leftarrow from "../../assets/images/leftArrow.svg";
 import rightarrow from "../../assets/images/rightArrow.svg";
 import { AmountSelector } from "./AmountSelector";
 import { AddToCartButton } from "./AddToCartButton";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ProductPageWrapper,
   Images,
@@ -24,7 +24,7 @@ import {
   OriginalPrice,
   Buttons,
 } from "./styles";
-import { formatCurrency, formatPercet } from "../../utils/Utils";
+import { formatCurrency, formatPercent } from "../../utils/Utils";
 
 export const ProductPage = ({
   count,
@@ -32,53 +32,32 @@ export const ProductPage = ({
   cartProducts,
   increaseCartProducts,
 }) => {
+  const displayRef = useRef();
+  const imgListRef = useRef();
+  const [imageNumber, setImageNumber] = useState(0);
+
   const selectImage = (e) => {
-    const imgList = e.target.parentNode;
-    for (var i = 0; i < 4; i++) {
-      imgList.children[i].id = "";
+    for (var i = 0; i < imgListRef.current.children.length; i++) {
+      imgListRef.current.children[i].id = "";
     }
     e.target.id = "selectedImg";
-    console.log(e.target.src);
-    const imageDisplay = document.getElementById("imageDisplay");
-    imageDisplay.src = e.target.src;
+    displayRef.current.src = e.target.src;
   };
 
   useEffect(() => {
-    const thumbnailDisplay = document.getElementById("thumbanildisplay");
-    const firstImg = thumbnailDisplay.children[0];
-    firstImg.id = "selectedImg";
+    imgListRef.current.children[0].id = "selectedImg";
   }, []);
 
   const nextImage = () => {
-    const thumbnailDisplay = document.getElementById("thumbanildisplay");
-    for (var i = 0; i < 4; i++) {
-      if (thumbnailDisplay.children[i].id == "selectedImg") {
-        if (i < 3) {
-          thumbnailDisplay.children[i].id = "";
-          thumbnailDisplay.children[i + 1].id = "selectedImg";
-          break;
-        }
-      }
+    if (imageNumber < product.images.length - 1) {
+      setImageNumber((prevState) => prevState + 1);
     }
-    const imageDisplay = document.getElementById("imageDisplay");
-    const selectedImg = document.getElementById("selectedImg");
-    imageDisplay.src = selectedImg.src;
   };
 
   const previousImage = () => {
-    const thumbnailDisplay = document.getElementById("thumbanildisplay");
-    for (var i = 0; i < 4; i++) {
-      if (thumbnailDisplay.children[i].id == "selectedImg") {
-        if (i > 0) {
-          thumbnailDisplay.children[i].id = "";
-          thumbnailDisplay.children[i - 1].id = "selectedImg";
-          break;
-        }
-      }
+    if (imageNumber > 0) {
+      setImageNumber((prevState) => prevState - 1);
     }
-    const imageDisplay = document.getElementById("imageDisplay");
-    const selectedImg = document.getElementById("selectedImg");
-    imageDisplay.src = selectedImg.src;
   };
 
   return (
@@ -87,31 +66,25 @@ export const ProductPage = ({
         <LeftArrow onClick={() => previousImage()}>
           <img src={leftarrow} alt="Seta seletora da foto anterior." />
         </LeftArrow>
-        <DisplayImg id="imageDisplay" src={Product1} alt="Imagem do produto" />
+        <DisplayImg
+          src={product.images[imageNumber]}
+          alt="Imagem do produto"
+          ref={displayRef}
+        />
         <RightArrow onClick={() => nextImage()}>
           <img src={rightarrow} alt="Seta seletora da próxima foto." />
         </RightArrow>
-        <ThumbnailDisplay id="thumbanildisplay">
-          <img
-            src={Product1}
-            alt="Imagem do produto"
-            onClick={(e) => selectImage(e)}
-          />
-          <img
-            src={Product2}
-            alt="Imagem do produto"
-            onClick={(e) => selectImage(e)}
-          />
-          <img
-            src={Product3}
-            alt="Imagem do produto"
-            onClick={(e) => selectImage(e)}
-          />
-          <img
-            src={Product4}
-            alt="Imagem do produto"
-            onClick={(e) => selectImage(e)}
-          />
+        <ThumbnailDisplay ref={imgListRef}>
+          {product.images.map((img) => {
+            return (
+              <img
+                src={img}
+                alt="Imagem do produto"
+                onClick={(e) => selectImage(e)}
+                key={Math.random()}
+              />
+            );
+          })}
         </ThumbnailDisplay>
       </Images>
 
@@ -121,7 +94,7 @@ export const ProductPage = ({
         <ProductDescription>{product.description}</ProductDescription>
         <PriceDisplay>
           <Price>{formatCurrency(product.price)}</Price>
-          <Discount>{formatPercet(product.discount)}</Discount>
+          <Discount>{formatPercent(product.discount)}</Discount>
         </PriceDisplay>
         <OriginalPrice>{formatCurrency(product.originalPrice)}</OriginalPrice>
         <Buttons>
@@ -148,4 +121,5 @@ const product = {
   price: 125,
   discount: 0.5,
   originalPrice: 250,
+  images: [Product1, Product2, Product3, Product4],
 };
