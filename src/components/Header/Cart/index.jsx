@@ -1,5 +1,6 @@
 import Product1Thumbnail from "../../../assets/images/image-product-1-thumbnail.jpg";
 import iconDelete from "../../../assets/images/icon-delete.svg";
+import { formatCurrency } from "../../../utils";
 import {
   CartContainer,
   CartWrapper,
@@ -13,7 +14,6 @@ import {
   EmptyCart,
   Flex,
 } from "./styles";
-import { formatCurrency } from "../../../utils/Utils";
 
 export const Cart = ({ cartProducts, deleteCartProducts }) => {
   return (

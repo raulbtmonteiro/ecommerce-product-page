@@ -7,6 +7,7 @@ import rightarrow from "../../assets/images/rightArrow.svg";
 import { AmountSelector } from "./AmountSelector";
 import { AddToCartButton } from "./AddToCartButton";
 import { useEffect, useRef, useState } from "react";
+import { formatCurrency, formatPercent } from "../../utils";
 import {
   ProductPageWrapper,
   Images,
@@ -24,7 +25,6 @@ import {
   OriginalPrice,
   Buttons,
 } from "./styles";
-import { formatCurrency, formatPercent } from "../../utils/Utils";
 
 export const ProductPage = ({
   count,
