@@ -7,8 +7,10 @@ name: PR actions
     branches:
       - master
 jobs:
-  app-test:
-    name: app-test
+  build-test:
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
-      - run: "npm run test"
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
