@@ -1,0 +1,13 @@
+name: PR actions
+"on":
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+jobs:
+  app-test:
+    name: app-test
+    steps:
+      run: "npm run test"
