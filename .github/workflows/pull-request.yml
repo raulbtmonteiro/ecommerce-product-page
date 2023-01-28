@@ -9,5 +9,6 @@ name: PR actions
 jobs:
   app-test:
     name: app-test
+    runs-on: ubuntu-latest
     steps:
       - run: "npm run test"
