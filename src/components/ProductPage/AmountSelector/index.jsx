@@ -17,11 +17,11 @@ export const AmountSelector = ({ count, setCount }) => {
     <SelectorContainer>
       <SelectorWrapper>
         <Minus onClick={() => subtract()}>
-          <img src={minus} alt="Operador matemático mais." />
+          <img src={minus} alt="Operador matemático menos." />
         </Minus>
         <Amount>{count}</Amount>
         <Plus onClick={() => setCount((prevState) => prevState + 1)}>
-          <img src={plus} alt="Operador matemático menos." />
+          <img src={plus} alt="Operador matemático mais." />
         </Plus>
       </SelectorWrapper>
     </SelectorContainer>
