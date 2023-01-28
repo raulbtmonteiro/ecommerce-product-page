@@ -10,4 +10,4 @@ jobs:
   app-test:
     name: app-test
     steps:
-      run: "npm run test"
+      - run: "npm run test"
