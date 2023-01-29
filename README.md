@@ -7,6 +7,7 @@ O projeto recria uma página de produto de e-commerce, onde são disponibilizada
 ## 🚀 Executando o projeto
 
 Clone o repositório do projeto em um diretório em sua máquina e rode os seguintes comandos na pasta raíz:
+> Importante possuir o Node instalado na máquina
 
 - npm install
 - npm run dev
