@@ -6,9 +6,9 @@ O projeto recria uma página de produto de e-commerce, onde são disponibilizada
 
 ## 🚀 Executando o projeto
 
-Clone o repositório do projeto em um diretório em sua máquina e rode os seguintes comandos nna pasta raíz:
+Clone o repositório do projeto em um diretório em sua máquina e rode os seguintes comandos na pasta raíz:
 
-1- npm install
-2- npm run dev
+- npm install
+- npm run dev
 
-Dessa maneira, estarão instaladas todas as suas dependências e você pode acompanhar todas as alterações realizadas no código.
+Dessa maneira, estarão instaladas todas as suas dependências e você pode acompanhar todas as alterações realizadas no código através do servidor local.
