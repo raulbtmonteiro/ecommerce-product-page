@@ -28,6 +28,10 @@ export const HeaderLeft = styled.div`
   align-items: center;
 
   height: 100%;
+
+  img {
+    cursor: pointer;
+  }
 `;
 
 export const HamburgerMenu = styled.div`

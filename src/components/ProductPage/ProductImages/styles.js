@@ -35,6 +35,7 @@ export const LeftArrow = styled.div`
     left: 16px;
     top: calc(50vw + 68px);
     cursor: pointer;
+    opacity: ${({ isDisabled }) => (isDisabled ? "0.5" : "1")};
   }
 `;
 
@@ -52,6 +53,7 @@ export const RightArrow = styled.div`
     right: 16px;
     top: calc(50vw + 68px);
     cursor: pointer;
+    opacity: ${({ isDisabled }) => (isDisabled ? "0.5" : "1")};
   }
 `;
 
