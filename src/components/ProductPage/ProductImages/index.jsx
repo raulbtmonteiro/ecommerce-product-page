@@ -6,10 +6,10 @@ import {
   DisplayImg,
   LeftArrow,
   RightArrow,
-  ThumbnailDisplay
+  ThumbnailDisplay,
 } from "./styles";
 
-export const ProductImages = memo(({product}) => {
+export const ProductImages = memo(({ product }) => {
   const displayRef = useRef();
   const imgListRef = useRef();
   const [imageNumber, setImageNumber] = useState(0);
@@ -38,9 +38,9 @@ export const ProductImages = memo(({product}) => {
     }
   };
 
-  return(
+  return (
     <Images>
-      <LeftArrow onClick={() => previousImage()}>
+      <LeftArrow onClick={() => previousImage()} isDisabled={imageNumber === 0}>
         <img src={leftarrow} alt="Seta seletora da foto anterior." />
       </LeftArrow>
       <DisplayImg
@@ -48,7 +48,10 @@ export const ProductImages = memo(({product}) => {
         alt="Imagem do produto"
         ref={displayRef}
       />
-      <RightArrow onClick={() => nextImage()}>
+      <RightArrow
+        onClick={() => nextImage()}
+        isDisabled={imageNumber === product.images.length - 1}
+      >
         <img src={rightarrow} alt="Seta seletora da próxima foto." />
       </RightArrow>
       <ThumbnailDisplay ref={imgListRef}>
@@ -64,5 +67,5 @@ export const ProductImages = memo(({product}) => {
         })}
       </ThumbnailDisplay>
     </Images>
-  )
+  );
 });
