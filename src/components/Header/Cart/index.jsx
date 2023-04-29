@@ -1,6 +1,8 @@
 import Product1Thumbnail from "../../../assets/images/image-product-1-thumbnail.jpg";
 import iconDelete from "../../../assets/images/icon-delete.svg";
 import { formatCurrency } from "../../../utils";
+import { CartContext } from "../../../context";
+import { useContext } from "react";
 import {
   CartContainer,
   CartWrapper,
@@ -15,7 +17,9 @@ import {
   Flex,
 } from "./styles";
 
-export const Cart = ({ cartProducts, deleteCartProducts }) => {
+export const Cart = () => {
+  const { cartProducts, onCartDecrease } = useContext(CartContext);
+
   return (
     <CartContainer>
       <CartWrapper>
@@ -40,7 +44,7 @@ export const Cart = ({ cartProducts, deleteCartProducts }) => {
                   </ProductCartTotal>
                   <IconDelete
                     src={iconDelete}
-                    onClick={() => deleteCartProducts(item.product)}
+                    onClick={() => onCartDecrease(item.product)}
                     alt="Ícone de lixeira para deletar produto do carrinho."
                   />
                 </ProductCartInfo>

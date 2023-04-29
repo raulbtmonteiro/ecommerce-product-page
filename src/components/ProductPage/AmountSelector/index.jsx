@@ -1,5 +1,7 @@
 import minus from "../../../assets/images/icon-minus.svg";
+import { AmountSelectorContext } from "../../../context";
 import plus from "../../../assets/images/icon-plus.svg";
+import { useContext } from "react";
 import {
   SelectorContainer,
   SelectorWrapper,
@@ -8,19 +10,23 @@ import {
   Amount,
 } from "./styles";
 
-export const AmountSelector = ({ count, setCount }) => {
-  const subtract = () => {
-    return count >= 1 ? setCount((prevState) => prevState - 1) : count;
+export const AmountSelector = () => {
+  const { selectorCount, setSelectorCount } = useContext(AmountSelectorContext);
+
+  const decreaseSelector = () => {
+    return selectorCount >= 1
+      ? setSelectorCount((prevState) => prevState - 1)
+      : selectorCount;
   };
 
   return (
     <SelectorContainer>
       <SelectorWrapper>
-        <Minus onClick={() => subtract()}>
+        <Minus onClick={() => decreaseSelector()}>
           <img src={minus} alt="Operador matemático menos." />
         </Minus>
-        <Amount>{count}</Amount>
-        <Plus onClick={() => setCount((prevState) => prevState + 1)}>
+        <Amount>{selectorCount}</Amount>
+        <Plus onClick={() => setSelectorCount((prevState) => prevState + 1)}>
           <img src={plus} alt="Operador matemático mais." />
         </Plus>
       </SelectorWrapper>

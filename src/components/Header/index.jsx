@@ -17,13 +17,15 @@ import {
   Avatar,
 } from "./styles";
 import { Cart } from "./Cart";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context";
 
 const navBarList = ["Collection", "Men", "Women", "About", "Contact"];
 
-export const Header = ({ cartProducts, deleteCartProducts }) => {
+export const Header = () => {
   const [menuShow, setMenuShow] = useState(false);
   const [cartShow, setCartShow] = useState(false);
+  const { cartProducts } = useContext(CartContext);
 
   return (
     <HeaderWrapper>
@@ -52,12 +54,7 @@ export const Header = ({ cartProducts, deleteCartProducts }) => {
           alt="Carrinho de compras."
           onClick={() => setCartShow(!cartShow)}
         />
-        {cartShow && (
-          <Cart
-            cartProducts={cartProducts}
-            deleteCartProducts={deleteCartProducts}
-          />
-        )}
+        {cartShow && <Cart />}
         <Products onClick={() => setCartShow(!cartShow)}>
           <p>
             {cartProducts.length == 1
