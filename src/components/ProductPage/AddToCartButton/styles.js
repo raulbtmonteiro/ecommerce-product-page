@@ -21,7 +21,8 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
+  opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
 
   @media screen and (max-width: 720px) {
     width: 100%;
