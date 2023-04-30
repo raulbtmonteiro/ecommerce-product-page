@@ -12,9 +12,11 @@ export const AddToCartButton = ({ product }) => {
     setSelectorCount(0);
   };
 
+  const isDisabled = selectorCount === 0;
+
   return (
     <ButtonWrapper onClick={() => handleClick(product, selectorCount)}>
-      <Button>
+      <Button disabled={isDisabled}>
         <img src={iconCart} alt="Carrinho de compras." />
         <ButtonText>Add to cart</ButtonText>
       </Button>
