@@ -1,35 +1,5 @@
 import styled from "styled-components";
 
-export const CartContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  position: absolute;
-  left: calc(50vw - 555px);
-  top: 165px;
-  z-index: 4;
-  max-width: 1110px;
-  width: 100%;
-
-  @media screen and (max-width: 1110px) {
-    left: 0;
-    padding: 0 24px;
-  }
-
-  @media screen and (max-width: 720px) {
-    top: 68px;
-  }
-`;
-
-export const CartWrapper = styled.div`
-  position: relative;
-  right: 0px;
-  width: 360px;
-  height: 256px;
-  background-color: white;
-  box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.503143);
-  border-radius: 10px;
-`;
-
 export const Name = styled.div`
   height: 67px;
   width: 100%;

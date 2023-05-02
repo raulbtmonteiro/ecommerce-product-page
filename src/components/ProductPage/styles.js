@@ -27,7 +27,7 @@ export const ProductInfo = styled.section`
   margin-left: 15px;
 
   @media screen and (max-width: 720px) {
-    padding: 24px;
+    padding: 24px 24px 48px;
     margin: 0 auto;
   }
 `;
