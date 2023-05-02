@@ -1,6 +1,9 @@
-import logo from "../../assets/images/logo.svg";
-import iconCart from "../../assets/images/icon-cart.svg";
 import imageAvatar from "../../assets/images/image-avatar.png";
+import iconCart from "../../assets/images/icon-cart.svg";
+import logo from "../../assets/images/logo.svg";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context";
+import { Cart } from "./Cart";
 import {
   HeaderWrapper,
   HeaderLeft,
@@ -16,9 +19,6 @@ import {
   Products,
   Avatar,
 } from "./styles";
-import { Cart } from "./Cart";
-import { useState, useContext } from "react";
-import { CartContext } from "../../context";
 
 const navBarList = ["Collection", "Men", "Women", "About", "Contact"];
 
@@ -54,7 +54,7 @@ export const Header = () => {
           alt="Carrinho de compras."
           onClick={() => setCartShow(!cartShow)}
         />
-        {cartShow && <Cart />}
+        {cartShow && <Cart cartShow={cartShow} setCartShow={setCartShow} />}
         <Products onClick={() => setCartShow(!cartShow)}>
           <p>
             {cartProducts.length == 1
