@@ -40,19 +40,31 @@ export const ProductImages = memo(({ product }) => {
 
   return (
     <Images>
-      <LeftArrow onClick={() => previousImage()} isDisabled={imageNumber === 0}>
-        <img src={leftarrow} alt="Seta seletora da foto anterior." />
+      <LeftArrow
+        onClick={() => previousImage()}
+        onKeyDown={() => previousImage()}
+        isDisabled={imageNumber === 0}
+        role="button"
+        aria-label="Imagem anterior"
+        tabIndex={0}
+      >
+        <img src={leftarrow} aria-hidden />
       </LeftArrow>
       <DisplayImg
         src={product.images[imageNumber]}
         alt="Imagem do produto"
         ref={displayRef}
+        fetchpriority="high"
       />
       <RightArrow
         onClick={() => nextImage()}
+        onKeyDown={() => nextImage()}
         isDisabled={imageNumber === product.images.length - 1}
+        role="button"
+        aria-label="Próxima imagem"
+        tabIndex={0}
       >
-        <img src={rightarrow} alt="Seta seletora da próxima foto." />
+        <img src={rightarrow} aria-hidden />
       </RightArrow>
       <ThumbnailDisplay ref={imgListRef}>
         {product.images.map((img) => {
